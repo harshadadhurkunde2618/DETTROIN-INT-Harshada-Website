@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Sunrise Valley International School</title>
+<meta name="description" content="Start your admission application to Sunrise Valley International School.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .apply-hero{padding:60px 32px 20px;}
+  .apply-hero .wrap{max-width:760px; margin:0 auto;}
+  .apply-hero h1{font-size:clamp(30px,4vw,42px); margin-bottom:12px;}
+  .apply-hero p{color:#3c4a41; font-size:16px;}
+  .back-link{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; color:var(--emerald-deep); font-weight:600; margin-bottom:22px;}
+
+  .apply-section{padding:20px 32px 90px;}
+  .apply-wrap{max-width:760px; margin:0 auto;}
+
+  .steps{display:flex; gap:10px; margin-bottom:36px;}
+  .step-chip{flex:1; text-align:center; font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase;
+    padding:10px 6px; border-radius:8px; background:var(--sage); color:#5b6b62; border:1px solid var(--sage-line);}
+  .step-chip.active{background:var(--emerald-deep); color:white; border-color:var(--emerald-deep);}
+
+  .form-card{background:var(--white); border:1px solid var(--sage-line); border-radius:var(--radius); padding:36px; box-shadow:var(--shadow);}
+  .field-group{margin-bottom:22px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  label{display:block; font-size:13.5px; font-weight:600; margin-bottom:7px; color:var(--ink);}
+  .req{color:#c0392b;}
+  input, select, textarea{
+    width:100%; padding:12px 14px; border-radius:8px; border:1.5px solid var(--sage-line);
+    background:var(--paper); font-family:var(--font-body); font-size:14.5px; color:var(--ink);
+    transition:border-color .2s ease;
+  }
+  input:focus, select:focus, textarea:focus{border-color:var(--emerald); outline:none;}
+  textarea{resize:vertical; min-height:90px;}
+  .error-msg{font-size:12.5px; color:#c0392b; margin-top:6px; display:none; font-family:var(--font-mono);}
+  .field-group.invalid input, .field-group.invalid select{border-color:#c0392b;}
+  .field-group.invalid .error-msg{display:block;}
+  @media (max-width:600px){ .field-row{grid-template-columns:1fr;} .form-card{padding:24px;} }
+
+  .form-actions{display:flex; justify-content:space-between; align-items:center; margin-top:32px;}
+  .form-note{font-size:12.5px; color:#5b6b62; font-family:var(--font-mono);}
+
+  /* success state */
+  .success-card{display:none; text-align:center; padding:60px 36px;}
+  .success-card.show{display:block; animation:fadein .5s ease;}
+  .success-icon{width:64px; height:64px; border-radius:50%; background:var(--sage); display:flex; align-items:center; justify-content:center; margin:0 auto 22px;}
+  .success-card h2{font-size:26px; margin-bottom:10px;}
+  .success-card p{color:#3c4a41; max-width:420px; margin:0 auto 26px;}
+  .ref-id{font-family:var(--font-mono); background:var(--sage); display:inline-block; padding:8px 16px; border-radius:8px; font-size:14px; margin-bottom:26px;}
+  @keyframes fadein{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#0B5D3B" stroke-width="2"/><circle cx="20" cy="20" r="11" stroke="#1F9D66" stroke-width="2"/><circle cx="20" cy="20" r="4" fill="#E8B95B"/></svg>
+      Sunrise Valley
+    </a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#story">Campus</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#portal">Portal</a>
+      <a href="admission.html">Admissions</a>
+    </div>
+    <div class="nav-actions">
+      <a href="admission.html" class="btn btn-primary">Apply now</a>
+    </div>
+  </nav>
+</header>
+
+<section class="apply-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Back to homepage</a>
+    <p class="eyebrow">Admissions 2026–27</p>
+    <h1>Start your application.</h1>
+    <p>Takes about 3 minutes. You'll get a reference ID at the end — our admissions team will follow up by email within 3 working days.</p>
+  </div>
+</section>
+
+<section class="apply-section">
+  <div class="apply-wrap">
+
+    <div class="steps" aria-hidden="true">
+      <div class="step-chip active">1. Student</div>
+      <div class="step-chip active">2. Parent / Guardian</div>
+      <div class="step-chip active">3. Grade &amp; Notes</div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <form id="admissionForm" novalidate>
+
+        <div class="field-group" id="group-studentName">
+          <label for="studentName">Student's full name <span class="req">*</span></label>
+          <input type="text" id="studentName" name="studentName" placeholder="e.g. Aarav Mehta">
+          <p class="error-msg">Please enter the student's full name.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group" id="group-dob">
+            <label for="dob">Date of birth <span class="req">*</span></label>
+            <input type="date" id="dob" name="dob">
+            <p class="error-msg">Please enter a date of birth.</p>
+          </div>
+          <div class="field-group" id="group-grade">
+            <label for="grade">Applying for grade <span class="req">*</span></label>
+            <select id="grade" name="grade">
+              <option value="">Select grade</option>
+              <option>Nursery</option>
+              <option>Grade 1</option><option>Grade 2</option><option>Grade 3</option>
+              <option>Grade 4</option><option>Grade 5</option><option>Grade 6</option>
+              <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+              <option>Grade 10</option>
+            </select>
+            <p class="error-msg">Please select a grade.</p>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group" id="group-parentName">
+            <label for="parentName">Parent / guardian name <span class="req">*</span></label>
+            <input type="text" id="parentName" name="parentName" placeholder="e.g. Priya Mehta">
+            <p class="error-msg">Please enter a parent or guardian name.</p>
+          </div>
+          <div class="field-group" id="group-phone">
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number">
+            <p class="error-msg">Please enter a valid 10-digit phone number.</p>
+          </div>
+        </div>
+
+        <div class="field-group" id="group-email">
+          <label for="email">Email address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+          <p class="error-msg">Please enter a valid email address.</p>
+        </div>
+
+        <div class="field-group">
+          <label for="notes">Anything we should know? (optional)</label>
+          <textarea id="notes" name="notes" placeholder="Previous school, special requirements, questions for the admissions team..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <p class="form-note">Fields marked <span class="req">*</span> are required</p>
+          <button type="submit" class="btn btn-primary">Submit application</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="success-card" id="successCard">
+      <div class="success-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#0B5D3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Application received.</h2>
+      <p id="successMsg">Thank you — we've logged your application. Our admissions team will reach out by email within 3 working days.</p>
+      <div class="ref-id" id="refId">REF-000000</div>
+      <div>
+        <a href="index.html" class="btn btn-ghost">Back to homepage</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom" style="max-width:1200px; margin:0 auto; padding:24px 0;">
+    <span>© 2026 Sunrise Valley International School</span>
+    <span>Placeholder site — built for demonstration</span>
+  </div>
+</footer>
+
+<div class="a11y-toolbar">
+  <button id="darkToggle" aria-label="Toggle dark mode" title="Dark mode">◐</button>
+  <button id="textToggle" aria-label="Toggle larger text" title="Larger text">A+</button>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/admission.js"></script>
+</body>
+</html>

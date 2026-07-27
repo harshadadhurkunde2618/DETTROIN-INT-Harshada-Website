@@ -47,3 +47,21 @@ python -m http.server 8000
 ## Deployment
 
 Deployed via GitHub Pages: Settings → Pages → Branch: `main` → `/ (root)`.
+
+## Intern Details
+
+- **Full Name:** Harshada Dhurkunde
+- **Email Address:**harshadadhurkunde2618@gmail.com
+- **GitHub Username:** harshadadhurkunde2618
+- **Selected Website:** Krishna International School (kisaligarh.com)
+- **Live Demo Link:** https://dettroin-int-harshada-website.vercel.app/
+- **Technologies Used:** HTML5, CSS3, JavaScript (vanilla, no frameworks)
+- **Key Improvements Made:**
+  - Replaced the deep nested mega-menu with a slim nav and search shortcut
+  - Added an animated "growth ring" hero illustration as a signature visual element
+  - Added a live scrolling notice ticker for announcements
+  - Added count-up statistics that animate on scroll
+  - Replaced the static image carousel with a horizontal scroll-snap "Campus Story" section
+  - Built an interactive student portal demo (roll number lookup with animated result bars)
+  - Added dark mode and font-size accessibility toggles
+  - Fully responsive layout with keyboard focus states and reduced-motion support
